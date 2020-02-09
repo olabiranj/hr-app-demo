@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <%- include('./partials/styles')  %>
+</head>
+
+<body>
+
+    <%- include('./partials/header')  %>
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <section class="breadcrumb-area bg-img bg-overlay" style="background-image: url(/assets/img/bg-img/41.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content">
+                        <h2>Edit Customer's Record</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="mag-breadcrumb py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/dashboard"><i class="fa fa-home"
+                                        aria-hidden="true"></i> Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit Page</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- ##### Video Submit Area Start ##### -->
+    <div class="video-submit-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <!-- Video Submit Content -->
+                    <div class="video-submit-content mb-50 p-30 bg-white box-shadow">
+                        <!-- Section Title -->
+                        <div class="section-heading">
+                            <h5>Edit Customer's Record</h5>
+                        </div>
+                        <img src="<%= payload.passport.substring(6, payload.passport.lenght)%>" height="50" width="100"
+                            alt="<%= payload.fullName%>">
+                        <div class="video-info mt-30">
+                            <form action="/edit-customer/<%= payload._id%>" method="POST">
+                                <div class="form-group">
+                                    <label for="upload-file">Full Name</label>
+                                    <input type="text" required class="form-control" value="<%= payload.fullName%>" name="fullName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="upload-file">Address</label>
+                                    <input type="text" required class="form-control" name="address" value="<%= payload.address%>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="upload-file">Date of Birth</label>
+                                    <input type="text" readonly class="form-control" value="<%= payload.dob.toString().substring(0,16)%>"
+                                        >
+                                </div>
+                                <div class="form-group">
+                                    <label for="upload-file">State of Origin</label>
+                                    <input type="text" readonly class="form-control" value="<%= payload.stateOfO%>"
+                                        >
+                                </div>
+                                <div class="form-group">
+                                    <label for="upload-file">Gender</label>
+                                    <input type="text" readonly class="form-control" value="<%= payload.gender%>"
+                                        >
+                                </div>
+                                <div class="form-group">
+                                    <label for="upload-file">Account Number</label>
+                                    <input type="text" readonly class="form-control" value="<%= payload.accNum%>"
+                                        >
+                                </div>
+                                <div class="form-group">
+                                    <label for="upload-file">BVN</label>
+                                    <input type="number" required class="form-control" value="<%= payload.bvn%>" name="bvn">
+                                </div>
+                                <div class="form-group">
+                                    <label for="upload-file">Email</label>
+                                    <input type="email" required class="form-control" value="<%= payload.email%>" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="upload-file">Phone Number</label>
+                                    <input type="number" required class="form-control" value="<%= payload.phoneNum%>" name="phoneNum">
+                                </div>
+                                <div class="mt-30">
+                                    <button type="submit" class="btn mag-btn">Update Account</button>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn mag-btn bg-danger" data-toggle="modal" data-target="#exampleModalCenter">
+                                        Delete
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Confirm Delete</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this record?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <form action="/delete-employee/<%= payload._id %>" method="POST">
+                        <button type="submit" class="btn btn-primary">Yes, Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- scripts -->
+    <%- include('./partials/scripts')  %>
+
+
+
+</body>
+
+</html>

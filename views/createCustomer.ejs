@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <%- include('./partials/styles')  %>
+</head>
+
+<body>
+
+    <%- include('./partials/header')  %>
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <section class="breadcrumb-area bg-img bg-overlay" style="background-image: url(/assets/img/bg-img/40.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content">
+                        <h2>Create New Account</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Breadcrumb Area End ##### -->
+    
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="mag-breadcrumb py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/dashboard"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">Create New Account</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+    
+    <!-- ##### Video Submit Area Start ##### -->
+    <div class="video-submit-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <!-- Video Submit Content -->
+                    <div class="video-submit-content mb-50 p-30 bg-white box-shadow">
+                        <!-- Section Title -->
+                        <div class="section-heading">
+                            <h5>Create a new account</h5>
+                        </div>
+    
+                        <div class="video-info mt-30">
+                            <form action="/create-customer" method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="upload-file">Full Name</label>
+                                    <input type="text" required class="form-control" name="fullName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="upload-file">Address</label>
+                                    <input type="text" required class="form-control" name="address">
+                                </div>
+                                <div class="form-group">
+                                    <label for="upload-file">DOB</label>
+                                    <input type="date" required class="form-control" name="dob">
+                                </div>
+                                <div class="form-group">
+                                    <label for="upload-file">State of Origin</label>
+                                    <select name="stateOfO" required class="form-control">
+                                        <option value=""></option>
+                                        <option value='Abia'>Abia</option>
+                                        <option value='Adamawa'>Adamawa</option>
+                                        <option value='AkwaIbom'>AkwaIbom</option>
+                                        <option value='Anambra'>Anambra</option>
+                                        <option value='Bauchi'>Bauchi</option>
+                                        <option value='Bayelsa'>Bayelsa</option>
+                                        <option value='Benue'>Benue</option>
+                                        <option value='Borno'>Borno</option>
+                                        <option value='Cross River'>Cross River</option>
+                                        <option value='Delta'>Delta</option>
+                                        <option value='Ebonyi'>Ebonyi</option>
+                                        <option value='Edo'>Edo</option>
+                                        <option value='Ekiti'>Ekiti</option>
+                                        <option value='Enugu'>Enugu</option>
+                                        <option value='FCT'>FCT</option>
+                                        <option value='Gombe'>Gombe</option>
+                                        <option value='Imo'>Imo</option>
+                                        <option value='Jigawa'>Jigawa</option>
+                                        <option value='Kaduna'>Kaduna</option>
+                                        <option value='Kano'>Kano</option>
+                                        <option value='Katsina'>Katsina</option>
+                                        <option value='Kebbi'>Kebbi</option>
+                                        <option value='Kogi'>Kogi</option>
+                                        <option value='Kwara'>Kwara</option>
+                                        <option value='Lagos'>Lagos</option>
+                                        <option value='Nasarawa'>Nasarawa</option>
+                                        <option value='Niger'>Niger</option>
+                                        <option value='Ogun'>Ogun</option>
+                                        <option value='Ondo'>Ondo</option>
+                                        <option value='Osun'>Osun</option>
+                                        <option value='Oyo'>Oyo</option>
+                                        <option value='Plateau'>Plateau</option>
+                                        <option value='Rivers'>Rivers</option>
+                                        <option value='Sokoto'>Sokoto</option>
+                                        <option value='Taraba'>Taraba</option>
+                                        <option value='Yobe'>Yobe</option>
+                                        <option value='Zamfara'>Zamafara</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="upload-file">Gender</label>
+                                    <select name="gender" required class="form-control">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="upload-file">BVN</label>
+                                    <input type="number" required class="form-control" name="bvn">
+                                </div>
+                                <div class="form-group">
+                                    <label for="upload-file">Email</label>
+                                    <input type="email" required class="form-control" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="upload-file">Phone Number</label>
+                                    <input type="number" required class="form-control" name="phoneNum">
+                                </div>
+                                <div class="form-group">
+                                    <label for="upload-file">Passport</label>
+                                    <input type="file" required class="form-control" name="passport">
+                                </div>
+                                <button type="submit" class="btn mag-btn mt-30">Create Account</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- scripts -->
+    <%- include('./partials/scripts')  %>
+
+    
+    
+</body>
+
+</html>

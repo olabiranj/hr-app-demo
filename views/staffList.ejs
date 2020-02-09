@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <%- include('./partials/styles')  %>
+</head>
+
+<body>
+
+    <%- include('./partials/header')  %>
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <section class="breadcrumb-area bg-img bg-overlay" style="background-image: url(/assets/img/bg-img/40.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-content">
+                        <h2>Customer Records</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="mag-breadcrumb py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/dashboard"><i class="fa fa-home"
+                                        aria-hidden="true"></i> Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">Customer Records</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- ##### Video Submit Area Start ##### -->
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-md-12 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <% if (payload.length < 1) { %>
+                        <br>
+                        <h3>No record in the database</h3>
+                        <% } else { %>
+                        <h5 class="card-title"></h5>
+                        <a class="btn mag-btn" href="/download-database"> Download records</a>
+                        <br>
+                        <hr>
+                        <div class="table-responsive">
+                            <table id="zero_config" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Action</th>
+                                        <th>Full Name</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                        <th>Gender</th>
+                                        <th>State of Origin</th>
+                                        <th>DOB</th>
+                                        <th>Acc. NUm.</th>
+                                        <th>BVN</th>
+                                        <th>Phone No.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for (var i = 0; i < payload.length; i++) { %>
+                                    <tr>
+                                        <td><a href="/edit-customer/<%= payload[i]._id %>">Edit</a></td>
+                                        <td><%= payload[i].fullName %></td>
+                                        <td><%= payload[i].email %></td>
+                                        <td><%= payload[i].address %></td>
+                                        <td><%= payload[i].gender %></td>
+                                        <td><%= payload[i].stateOfO %></td>
+                                        <td><%= payload[i].dob.toString().substring(0, 15) %></td>
+                                        <td><%= payload[i].accNum %></td>
+                                        <td><%= payload[i].bvn %></td>
+                                        <td><%= payload[i].phoneNum %></td>
+                                    </tr>
+                                    <% } %>
+                                    </tfoot>
+                            </table>
+                        </div>
+                        <%} %>
+                        <hr>
+                        <% if (pages > 0) { %>
+                        <% if (current == 1) { %>
+                        <a class="btn mag-btn disabled">First</a>
+                        <% } else { %>
+                        <a class="btn mag-btn" href="/customer-list/1">First</a>
+                        <% } %>
+                        <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                        <% if (i !== 1) { %>
+                        <a class="btn mag-btn disabled">...</a>
+                        <% } %>
+                        <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                        <% if (i == current) { %>
+                        <a class="btn mag-btn"><%= i %></a>
+                        <% } else { %>
+                        <a class="btn mag-btn" href="/customer-list/<%= i %>"><%= i %></a>
+                        <% } %>
+                        <% if (i == Number(current) + 4 && i < pages) { %>
+                        <a class="btn mag-btn">...</a>
+                        <% } %>
+                        <% } %>
+                        <% if (current == pages) { %>
+                        <a class="btn bg-info disabled">Last</a>
+                        <% } else { %>
+                        <a class="btn " href="/customer-list/<%= pages %>">Last</a>
+                        <% } %>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+    <!-- scripts -->
+    <%- include('./partials/scripts')  %>
+
+
+
+</body>
+
+</html>

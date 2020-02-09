@@ -1,0 +1,46 @@
+<!-- ##### All Javascript Script ##### -->
+<!-- jQuery-2.2.4 js -->
+<script src="/assets/js/jquery/jquery-2.2.4.min.js"></script>
+<!-- Popper js -->
+<script src="/assets/js/bootstrap/popper.min.js"></script>
+<!-- Bootstrap js -->
+<script src="/assets/js/bootstrap/bootstrap.min.js"></script>
+<!-- All Plugins js -->
+<script src="/assets/js/plugins/plugins.js"></script>
+<!-- Active js -->
+<script src="/assets/js/active.js"></script>
+<script src="/dist/sweetalert2.all.min.js"></script>
+<script src="/dist/sweetalert2.js"></script>
+<script>
+    <% if (typeof messages.success != 'undefined' && messages.success != '') { %>
+            Swal.fire({
+            text: "<%= messages.success %>",
+            icon: 'success'
+            })
+    <% } else if (typeof messages.error != 'undefined' && messages.error != '') { %>
+                Swal.fire({
+                text: "<%= messages.error %>",
+                icon: 'error'
+        })
+    <% } %>
+
+    //change Email
+    $("#emailBtn").click(function (event) {
+            if ($('#emailVal').val() != $('#oldEmail').val()) {
+                event.preventDefault();
+                $('#msg').text(`This is not your current email`)
+            } else if ($('#email1').val() != $('#email2').val()) {
+                event.preventDefault();
+                $('#msg').text('Email mismatch')
+            } else {
+            }
+        });
+    $("#passwordBtn").click(function (event) {
+            if ($('#password1').val() != $('#password2').val()) {
+                event.preventDefault();
+                $('#msg').text('Password mismatch')
+            } else {
+
+            }
+        });
+</script>
