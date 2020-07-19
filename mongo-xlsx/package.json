@@ -39,7 +39,7 @@
   "description": "Convert Mongo data into Excel and vice versa.",
   "devDependencies": {
     "async": "^1.5.0",
-    "lodash": "^3.10.1",
+    "lodash": "^4.17.19",
     "mongoose": "^4.3.7"
   },
   "homepage": "https://github.com/Moblox/mongo-xlsx#readme",
